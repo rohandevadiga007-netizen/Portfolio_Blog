@@ -1,327 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Rohan R - R25EJ123</title>
-  <style>
-    :root {
-      --bg-primary: #0f172a;
-      --bg-secondary: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-hover: #0284c7;
-      --card-border: #334155;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan R | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding-bottom: 2rem;
-    }
+        nav {
+            background-color: #1e293b;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--card-border);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-    }
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #38bdf8;
+        }
 
-    nav .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--accent);
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+        nav a:hover {
+            color: #38bdf8;
+        }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+        header {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+        header h1 {
+            font-size: 2.8rem;
+            color: #f8fafc;
+            margin-bottom: 0.5rem;
+        }
 
-    header.hero {
-      padding: 5rem 0 3rem;
-      text-align: center;
-    }
+        header p {
+            font-size: 1.2rem;
+            color: #38bdf8;
+            margin-bottom: 1rem;
+        }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
+        .student-id {
+            background-color: #334155;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
 
-    .hero p.subtitle {
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
 
-    .hero p.bio {
-      color: var(--text-muted);
-      max-width: 650px;
-      margin: 0 auto 1.5rem;
-    }
+        h2 {
+            font-size: 2rem;
+            color: #38bdf8;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.5rem;
+        }
 
-    .social-links a {
-      display: inline-block;
-      margin: 0 0.5rem;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
+        .about-text {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
 
-    .social-links a:hover {
-      background-color: var(--accent);
-      color: var(--bg-primary);
-    }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
 
-    section {
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--card-border);
-    }
+        .project-card {
+            background-color: #1e293b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-main);
-      border-left: 4px solid var(--accent);
-      padding-left: 0.75rem;
-    }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
+        .project-card h3 {
+            color: #f8fafc;
+            margin-bottom: 0.5rem;
+        }
 
-    .card {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      transition: transform 0.2s, border-color 0.2s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+        .project-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
+        .badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
 
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
+        .badge {
+            background-color: #0284c7;
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
 
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
+        .project-link {
+            display: inline-block;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
+        .project-link:hover {
+            text-decoration: underline;
+        }
 
-    .tag {
-      background-color: rgba(56, 189, 248, 0.1);
-      color: var(--accent);
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-    }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
 
-    .card-link {
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
+        .skill-item {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: #e2e8f0;
+        }
 
-    .card-link:hover {
-      text-decoration: underline;
-    }
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
 
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
+        .contact-info strong {
+            color: #38bdf8;
+        }
 
-    .skill-badge {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--card-border);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 0 1rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #1e293b;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">Rohan R</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <div class="logo">Rohan R</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <div class="container">
-    <header class="hero">
-      <h1>Rohan R</h1>
-      <p class="subtitle">3rd Semester, B.Tech CSE | Student ID: R25EJ123</p>
-      <p class="bio">
-        Passionate about software development, computer science fundamentals, and algorithm design.
-      </p>
-      <div class="social-links">
-        <a href="https://github.com/rohandevadiga007" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-        <a href="#contact">Contact Me</a>
-      </div>
+    <header>
+        <h1>Rohan R</h1>
+        <p>3rd Semester B.Tech CSE Student</p>
+        <span class="student-id">Student ID: R25EJ123</span>
     </header>
 
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a 3rd-semester B.Tech Computer Science and Engineering student dedicated to building clean, scalable software and mastering core computer science principles. My technical foundation spans algorithmic problem solving in Python and C, combined with modern version control and collaborative development workflows. I aim to contribute to open-source software and develop efficient systems.
-      </p>
+        <h2>About Me</h2>
+        <p class="about-text">
+            I am a 3rd-semester B.Tech Computer Science and Engineering student dedicated to mastering software development, data structures, and algorithmic efficiency. My primary language focus includes Python and C programming along with essential version control practices using Git and GitHub. I am constantly building hands-on projects to sharpen my core computer science fundamentals and practical engineering skills.
+        </p>
     </section>
 
     <section id="projects">
-      <h2>Portfolio Projects</h2>
-      <div class="projects-grid">
-        
-        <div class="card">
-          <div>
-            <h3>Hello World Setup</h3>
-            <p>Initial repository established during Activity 1 & 2 to configure VS Code, Git CLI, and basic GitHub workflows.</p>
-            <div class="tags">
-              <span class="tag">Git</span>
-              <span class="tag">GitHub</span>
-              <span class="tag">VS Code</span>
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div>
+                    <h3>helloworld-c</h3>
+                    <p>Initial repository created for environment setup, practicing C programming basics, and mastering Git commit and branch workflows.</p>
+                    <div class="badges">
+                        <span class="badge">C</span>
+                        <span class="badge">Git</span>
+                        <span class="badge">VS Code</span>
+                    </div>
+                </div>
+                <a href="https://github.com/rohandevadiga007-netizen/helloworld-c" target="_blank" class="project-link">View Repository &rarr;</a>
             </div>
-          </div>
-          <a href="https://github.com/rohandevadiga007/hello-world" class="card-link" target="_blank" rel="noopener noreferrer">View Repository &rarr;</a>
-        </div>
 
-        <div class="card">
-          <div>
-            <h3>Pair Programming Log</h3>
-            <p>Collaborative development record generated during Activity 3 using VS Code Live Share and GitLens tracking.</p>
-            <div class="tags">
-              <span class="tag">Live Share</span>
-              <span class="tag">GitLens</span>
-              <span class="tag">Pair Programming</span>
+            <div class="project-card">
+                <div>
+                    <h3>HackerRank 3rd Sem Portfolio</h3>
+                    <p>Collection of competitive programming and algorithmic problem solutions completed on HackerRank for 3rd semester coursework.</p>
+                    <div class="badges">
+                        <span class="badge">Python</span>
+                        <span class="badge">C</span>
+                        <span class="badge">HackerRank</span>
+                    </div>
+                </div>
+                <a href="https://github.com/rohandevadiga007-netizen/HackerRank-3rdsem-Portfolio" target="_blank" class="project-link">View Repository &rarr;</a>
             </div>
-          </div>
-          <a href="https://github.com/rohandevadiga007/pair-programming-log" class="card-link" target="_blank" rel="noopener noreferrer">View Repository &rarr;</a>
-        </div>
 
-        <div class="card">
-          <div>
-            <h3>LeetCode Solutions</h3>
-            <p>Repository tracking algorithmic solutions, data structure implementations, and computational complexity analyses.</p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">C</span>
-              <span class="tag">Algorithms</span>
+            <div class="project-card">
+                <div>
+                    <h3>leetcode-solutions</h3>
+                    <p>Dedicated repository tracking algorithmic problem solutions in Python and C complete with time and space complexity analyses.</p>
+                    <div class="badges">
+                        <span class="badge">DSA</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">Algorithms</span>
+                    </div>
+                </div>
+                <a href="https://github.com/rohandevadiga007-netizen/leetcode-solutions" target="_blank" class="project-link">View Repository &rarr;</a>
             </div>
-          </div>
-          <a href="https://github.com/rohandevadiga007/leetcode-solutions" class="card-link" target="_blank" rel="noopener noreferrer">View Repository &rarr;</a>
         </div>
-
-      </div>
     </section>
 
     <section id="skills">
-      <h2>Skills & Technical Knowledge</h2>
-      <div class="skills-list">
-        <span class="skill-badge">Python</span>
-        <span class="skill-badge">C</span>
-        <span class="skill-badge">Data Structures & Algorithms</span>
-        <span class="skill-badge">Git & GitHub</span>
-        <span class="skill-badge">VS Code & GitLens</span>
-        <span class="skill-badge">Digital Logic & Boolean Algebra</span>
-        <span class="skill-badge">HTML5 & CSS3</span>
-      </div>
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill-item">Python</div>
+            <div class="skill-item">C Programming</div>
+            <div class="skill-item">Data Structures & Algorithms</div>
+            <div class="skill-item">Git & GitHub</div>
+            <div class="skill-item">Digital Logic Design</div>
+            <div class="skill-item">HTML5 & CSS3</div>
+            <div class="skill-item">VS Code</div>
+        </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p style="color: var(--text-muted);">
-        Feel free to reach out for collaboration or inquiries regarding my coursework and projects:
-      </p>
-      <p style="margin-top: 0.5rem;">
-        <strong>Phone:</strong> <a href="tel:+919019243270" style="color: var(--accent);">+91 9019243270</a><br>
-        <strong>Email:</strong> <a href="mailto:ugcet2502706@reva.edu.in" style="color: var(--accent);">ugcet2502706@reva.edu.in</a>
-      </p>
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> ugcet2502706@reva.edu.in</p>
+            <p><strong>Phone:</strong> +91 9019243270</p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/rohandevadiga007-netizen" target="_blank" style="color: #38bdf8;">github.com/rohandevadiga007-netizen</a></p>
+        </div>
     </section>
 
     <footer>
-      <p>&copy; 2026 Rohan R (R25EJ123) — B.Tech CSE Portfolio. Built via AI-assisted prompting.</p>
+        <p>&copy; 2026 Rohan R (R25EJ123). Portfolio built for Activity 12.</p>
     </footer>
-  </div>
 
 </body>
 </html>
